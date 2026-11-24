@@ -1,0 +1,33 @@
+{
+  "name": "golem-reference-game",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "generate": "node scripts/go.mjs tool golem-bake",
+    "generate:check": "node scripts/go.mjs tool golem-bake --check",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "build": "npm run check && vite build",
+    "dev": "vite --host 127.0.0.1",
+    "server": "node scripts/go.mjs run ./cmd/server",
+    "test:server": "node scripts/go.mjs test ./...",
+    "test:browser": "playwright test"
+  },
+  "dependencies": {
+    "@threlte/core": "8.6.1",
+    "golem-engine": "0.4.0-rc.1",
+    "golem-threlte": "0.4.0-rc.1",
+    "svelte": "5.57.1",
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@sveltejs/vite-plugin-svelte": "7.3.1",
+    "@types/node": "^24.0.0",
+    "@types/three": "0.186.0",
+    "svelte-check": "4.7.6",
+    "typescript": "6.0.3",
+    "vite": "8.3.8"
+  }
+}

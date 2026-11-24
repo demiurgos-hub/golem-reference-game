@@ -1,0 +1,6 @@
+# One of the lanterns on the ring. Lanterns are the shared, persistent world:
+# they are saved in snapshots and come back lit or dark after a restart.
+entity: Lantern
+vars:
+  slot: { type: uint32, tag: 1 }
+  lit: { type: bool, tag: 2 }

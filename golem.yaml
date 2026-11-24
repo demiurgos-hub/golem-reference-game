@@ -1,0 +1,20 @@
+entity_schema: schemas/entities/
+command_schema: schemas/commands/
+
+simulation:
+  dimensions: 3
+
+proto:
+  package: lanternring
+  go_package: github.com/demiurgos-hub/golem-reference-game/internal/generated
+  out: internal/generated/entities.proto
+
+integrations:
+  go-server:
+    out: internal/generated/
+    package: generated
+  js-client:
+    out: web/src/generated/client/
+  threlte:
+    out: web/src/generated/threlte/
+    protocol_import: ../client/

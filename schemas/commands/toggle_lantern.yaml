@@ -1,0 +1,5 @@
+# Any session may light or snuff any lantern by its slot.
+command: ToggleLantern
+target: session
+fields:
+  slot: { type: uint32, tag: 1 }

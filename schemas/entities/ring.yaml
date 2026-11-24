@@ -1,0 +1,7 @@
+# Ring-wide counters, replicated to every session. The total survives restarts
+# with the lanterns; the visitor count is reset when the world is restored.
+entity: Ring
+global: true
+vars:
+  switches: { type: uint32, tag: 1 }
+  visitors: { type: int32, tag: 2 }

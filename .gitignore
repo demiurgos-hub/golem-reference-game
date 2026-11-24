@@ -1,0 +1,15 @@
+# Dependencies and build output (the generated code under internal/generated
+# and web/src/generated is committed on purpose; golem-bake --check verifies it).
+node_modules/
+web/dist/
+bin/
+
+# Local runtime state
+data/
+*.snapshot
+*.pem
+
+# Test output
+test-results/
+playwright-report/
+*.log
