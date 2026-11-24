@@ -102,16 +102,17 @@ Golem Deploy clones this repository, builds it inside `docker build` (`npm ci`, 
 ```sh
 GOLEM_ADDR=:7777
 GOLEM_HTTP_ADDR=:7777
-GOLEM_TLS_CERT_FILE=/run/golem/tls/cert.pem
-GOLEM_TLS_KEY_FILE=/run/golem/tls/key.pem
-GOLEM_TLS_PINNED=1                                      # for a self-signed certificate
+GOLEM_TLS_CERT_FILE=/run/golem-deploy/tls/tls.crt
+GOLEM_TLS_KEY_FILE=/run/golem-deploy/tls/tls.key
+GOLEM_TLS_PINNED=1                                      # 1 for a self-signed certificate, 0 for an uploaded one
 GOLEM_PUBLIC_URL=https://<host>:<port>/wt
 GOLEM_WS_FALLBACK_URL=wss://<host>:<port>/api/ws
-GOLEM_ADMIN_ADDR=:9090
+GOLEM_WT_ALLOWED_ORIGINS=https://<host>:<port>
+GOLEM_ADMIN_ADDR=:7778
 GOLEM_ADMIN_TOKEN=<random>
-GOLEM_SNAPSHOT_DIR=/data
-GOLEM_SNAPSHOT_INTERVAL=5m
 ```
+
+Golem Deploy does not set a snapshot directory yet, so a deployed server starts with a fresh world after each restart; persistent data volumes and backups are planned.
 
 The browser then loads the page, the realtime config and both transports from one origin, `https://<host>:<port>`: WebTransport over UDP, the page and the WebSocket fallback over TCP. The server reads nothing outside its working directory except the TLS files, and writes only to the snapshot directory.
 
